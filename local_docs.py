@@ -1,5 +1,4 @@
 import os
-
 from PyPDF2 import PdfReader
 from langchain import FAISS
 from langchain.embeddings import OpenAIEmbeddings
@@ -25,14 +24,20 @@ def read_pdf(pdf_path):
     return texts
 
 
-fds_path = 'src/wiper_manual_mechanical.pdf'
-####default embedding model is text-embedding-ada-002
+fds_path = 'local_docs/wiper_manual_mechanical.pdf'
+#default embedding model is text-embedding-ada-002
 embeddings = OpenAIEmbeddings()
 fds_retriever = None
 fds_texts = read_pdf(fds_path)
 # fds_texts = read_from_image_pdf(fds_path)
 fds_retriever = FAISS.from_texts(fds_texts, embeddings)
 fds_retriever.save_local("local_docs")
+
+
+
+
+
+
 
 
 
