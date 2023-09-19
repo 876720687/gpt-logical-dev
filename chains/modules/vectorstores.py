@@ -13,7 +13,7 @@ import numpy as np
 def dependable_faiss_import() -> Any:
     """Import faiss if available, otherwise raise error."""
     try:
-        import faiss
+        import local_docs
     except ImportError:
         raise ValueError(
             "Could not import faiss python package. "

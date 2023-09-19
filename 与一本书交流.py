@@ -1,45 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 初始化
-# PDF位置：/home/mw/project/d2l-zh-pytorch-2.0.0.pdf  
-# 将其转化为词库
 
-# In[1]:
-
-
-pwd
-
-
-# In[2]:
-
-
-# cd /home/mw/project/langchain-ChatGLM
-# cd /root/autodl-tmp/langchain-ChatGLM
-
-
-# In[3]:
-
-
+# PDF位置：/home/mw/project/d2l-zh-pytorch-2.0.0.pdf
 # 安装依赖
 # !pip install -r requirements.txt -i https://mirror.sjtu.edu.cn/pypi/web/simple
-
-
-# In[4]:
-
 
 # 安装nltk_data
 # 已有的情况下需要给出目录
 # !cp -r nltk_data /root/autodl-tmp/langchain-ChatGLM
 
 
-# # model
-
-# In[10]:
 
 
 # 使用 Markdown 格式打印模型输出
-from IPython.display import display, Markdown, clear_output
+# from IPython.display import display, Markdown, clear_output
 
 def display_answer(agent, query, vs_path, history=[]):
     for resp, history in local_doc_qa.get_knowledge_based_answer(query=query,
@@ -51,16 +26,10 @@ def display_answer(agent, query, vs_path, history=[]):
     return resp, history
 
 
-# In[2]:
-
-
-import torch.cuda
 import torch.backends
 
 from configs import model_config
 
-
-# In[3]:
 
 
 # 全局参数，修改后请重新初始化
@@ -81,8 +50,6 @@ model_config.llm_model_dict = {
 # /root/autodl-tmp/temp
 model_config.VS_ROOT_PATH = "/root/autodl-tmp/temp" #/home/mw/temp 
 
-
-# In[4]:
 
 
 from chains.local_doc_qa import LocalDocQA
@@ -109,15 +76,11 @@ local_doc_qa.init_cfg(llm_model=LLM_MODEL,
 # !pip install tabulate
 
 
-# In[5]:
-
-
 # vs_path, _ = local_doc_qa.init_knowledge_vector_store("/root/autodl-tmp/test") # /home/mw/project/d2l-zh-pytorch-2.0.0.pdf
 
 # 构建全量模型
 vs_path, _ = local_doc_qa.init_knowledge_vector_store("/root/autodl-tmp/track2-问答式科研知识库") # /home/mw/project/d2l-zh-pytorch-2.0.0.pdf
 
-vs_path
 
 
 # In[ ]:

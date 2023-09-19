@@ -1,15 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
-
-
-cd /home/mw/project/langchain-ChatGLM
-
-
-# In[7]:
-
-
 # 引入包
 from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
@@ -23,7 +14,6 @@ import os
 import readline
 
 
-# In[8]:
 
 
 # 全局参数
@@ -45,8 +35,6 @@ llm_model_dict = {
     "chatglm-6b": "/home/mw/input/ChatGLM6B6449",
 }
 
-
-# In[9]:
 
 
 # 初始化配置

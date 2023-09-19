@@ -55,26 +55,10 @@
 # 1. 增加一个《动手学深度学习》书籍对话bot的真实案例  
 # 2. 增加 ChineseTextSplitter 来避免召回内容过长导致的显存溢出问题  
 
-# In[2]:
 
 
-# 安装依赖
-get_ipython().system('pip install -r requirements.txt -i https://mirror.sjtu.edu.cn/pypi/web/simple')
-
-
-# In[3]:
-
-
-# 安装nltk_data
-# 
-get_ipython().system('cp -r nltk_data /home/mw')
-
-
-# In[4]:
-
-
-# 使用 Markdown 格式打印模型输出
-from IPython.display import display, Markdown, clear_output
+# # 使用 Markdown 格式打印模型输出
+# from IPython.display import display, Markdown, clear_output
 
 def display_answer(agent, query, vs_path, history=[]):
     for resp, history in local_doc_qa.get_knowledge_based_answer(query=query,
@@ -89,7 +73,6 @@ def display_answer(agent, query, vs_path, history=[]):
 # In[5]:
 
 
-import torch.cuda
 import torch.backends
 
 from configs import model_config
@@ -110,7 +93,7 @@ model_config.llm_model_dict = {
 }
 model_config.VS_ROOT_PATH = "/home/mw/temp"
 
-from chains.local_doc_qa import LocalDocQA
+# from chains.local_doc_qa import LocalDocQA
 
 EMBEDDING_MODEL = "text2vec" # embedding 模型，对应 embedding_model_dict
 VECTOR_SEARCH_TOP_K = 6
@@ -126,7 +109,6 @@ local_doc_qa.init_cfg(llm_model=LLM_MODEL,
                           top_k=VECTOR_SEARCH_TOP_K)
 
 
-# In[6]:
 
 
 # 使用 ChatGLM 的 readme 进行测试
@@ -134,17 +116,12 @@ vs_path, _ = local_doc_qa.init_knowledge_vector_store("/home/mw/project/test_cha
 vs_path
 
 
-# In[7]:
-
-
 # 测试未进行本地知识库接入时的结果
-from IPython.display import display, Markdown, clear_output
+# from IPython.display import display, Markdown, clear_output
 for resp, history in local_doc_qa.llm._call("chatglm-6b 的局限性具体体现在哪里，如何实现改进"):
     clear_output(wait=True)
     display(Markdown(resp))
 
-
-# In[8]:
 
 
 # 接入知识库后同一问题的返回结果
