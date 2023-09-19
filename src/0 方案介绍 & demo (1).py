@@ -75,7 +75,7 @@ def display_answer(agent, query, vs_path, history=[]):
 
 import torch.backends
 
-from configs import model_config
+from pkg.configs import model_config
 
 # 全局参数，修改后请重新初始化
 model_config.embedding_model_dict = {

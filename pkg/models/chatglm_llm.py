@@ -1,13 +1,13 @@
 import json
 from langchain.llms.base import LLM
-from typing import Optional, List
+from typing import List
 from langchain.llms.utils import enforce_stop_tokens
 from transformers import AutoTokenizer, AutoModel, AutoConfig
 import torch
-from configs.model_config import LLM_DEVICE
+from pkg.configs.model_config import LLM_DEVICE
 from langchain.callbacks.base import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from typing import Dict, Tuple, Union, Optional
+from typing import Dict, Optional
 
 DEVICE = LLM_DEVICE
 DEVICE_ID = "0" if torch.cuda.is_available() else None

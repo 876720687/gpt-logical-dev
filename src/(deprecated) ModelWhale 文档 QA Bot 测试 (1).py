@@ -7,14 +7,10 @@ from langchain.prompts import PromptTemplate
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.document_loaders import UnstructuredFileLoader, DirectoryLoader
-from models.chatglm_llm import ChatGLM
+from pkg.models import ChatGLM
 import sentence_transformers
 import torch
 import os
-import readline
-
-
-
 
 # 全局参数
 EMBEDDING_MODEL = "text2vec" # embedding 模型，对应 embedding_model_dict
@@ -120,7 +116,9 @@ def get_knowledge_based_answer(query, vector_store, chat_history=[]):
 
 
 # 使用 Markdown 格式打印模型输出
-from IPython.display import display, Markdown, clear_output
+from IPython.display import display, Markdown
+
+
 def display_answer(query, vector_store, history = []):
     resp, history = get_knowledge_based_answer(query=query,
                                                vector_store=vector_store,

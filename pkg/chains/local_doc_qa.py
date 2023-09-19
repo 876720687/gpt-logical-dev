@@ -1,10 +1,9 @@
 from langchain.embeddings.huggingface import HuggingFaceEmbeddings
 from langchain.vectorstores import FAISS
 from langchain.document_loaders import UnstructuredFileLoader
-from models.chatglm_llm import ChatGLM
-from configs.model_config import *
+from pkg.models import ChatGLM
 import datetime
-from textsplitter import ChineseTextSplitter
+from pkg.textsplitter import ChineseTextSplitter
 from typing import List, Tuple
 from langchain.docstore.document import Document
 import numpy as np

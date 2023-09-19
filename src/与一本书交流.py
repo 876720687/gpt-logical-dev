@@ -28,7 +28,7 @@ def display_answer(agent, query, vs_path, history=[]):
 
 import torch.backends
 
-from configs import model_config
+from pkg.configs import model_config
 
 
 
@@ -52,7 +52,7 @@ model_config.VS_ROOT_PATH = "/root/autodl-tmp/temp" #/home/mw/temp
 
 
 
-from chains.local_doc_qa import LocalDocQA
+from pkg.chains.local_doc_qa import LocalDocQA
 
 EMBEDDING_MODEL = "text2vec" # embedding 模型，对应 embedding_model_dict
 VECTOR_SEARCH_TOP_K = 6
